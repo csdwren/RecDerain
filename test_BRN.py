@@ -11,15 +11,11 @@ from utils import *
 from generator import BRN, print_network
 import time
 
-
-parser = argparse.ArgumentParser(description="DnCNN_Test")
-parser.add_argument("--num_of_layers", type=int, default=17, help="Number of total layers")
-parser.add_argument("--logdir", type=str, default="logs/derain_syn_RRNDSI_loss1_s8", help='path of log files')
-parser.add_argument("--test_data", type=str, default='Set12', help='test on Set12 or Set68')
-parser.add_argument("--test_noiseL", type=float, default=25, help='noise level used on test set')
-parser.add_argument("--data_path", type=str, default="/media/r/dataset/rain/SPA-data/real_test_1000/", help='path to training data')
-parser.add_argument("--save_path", type=str, default="/home/r/shangwei/derain/results/syn_RRNDSI_loss1_s8/output", help='path to save results')
-parser.add_argument("--save_path_r", type=str, default="/home/r/shangwei/derain/results/syn_RRNDSI_loss1_s8/rainstreak", help='path to save results1')
+parser = argparse.ArgumentParser(description="BRN_Test")
+parser.add_argument("--logdir", type=str, default="logs/dataset/BRN", help='path of log files')
+parser.add_argument("--data_path", type=str, default="dataset/...", help='path to testing data')
+parser.add_argument("--save_path", type=str, default="results/dataset/BRN/output", help='path to save results')
+parser.add_argument("--save_path_r", type=str, default="results/dataset/BRN/rainstreak", help='path to save rain streaks')
 parser.add_argument("--use_GPU", type=bool, default=True, help='use GPU or not')
 parser.add_argument("--gpu_id", type=str, default="0", help='GPU id')
 parser.add_argument("--inter_iter", type=int, default=8, help='number of inter_iteration')
@@ -27,11 +23,6 @@ opt = parser.parse_args()
 
 if opt.use_GPU:
     os.environ["CUDA_VISIBLE_DEVICES"] = opt.gpu_id
-
-
-def normalize(data):
-    return data/255.
-
 
 def main():
     if not os.path.isdir(opt.save_path):
