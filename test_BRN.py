@@ -77,10 +77,10 @@ def main():
             with torch.no_grad(): # this can save much memory
                 torch.cuda.synchronize()
                 start_time = time.time()
-                out, _, out_r, _ = model(INoisy)
+                out, _, _, _ = model(INoisy)
            
                 out = torch.clamp(out, 0., 1.)
-                out_r = torch.clamp(out_r, 0., 1.)
+                
             
                 torch.cuda.synchronize()
                 end_time = time.time()
