@@ -81,10 +81,10 @@ def main():
             with torch.no_grad(): # this can save much memory
                 torch.cuda.synchronize()
                 start_time = time.time()
-                out, _, out_r, _ = model(INoisy)
+                out, _, _, _ = model(INoisy)
                 
                 out = torch.clamp(out, 0., 1.)
-                out_r = torch.clamp(out_r, 0., 1.)
+               
             
                 torch.cuda.synchronize()
                 end_time = time.time()
@@ -95,30 +95,21 @@ def main():
         
             if opt.use_GPU:
                 save_out = np.uint8(255 * out.data.cpu().numpy().squeeze())   
-                save_out_r = np.uint8(255 * out_r.data.cpu().numpy().squeeze())
+                
             
             else:
                 save_out = np.uint8(255 * out.data.numpy().squeeze())
-                save_out_r = np.uint8(255 * out_r.data.numpy().squeeze())
+                
             
             save_out = save_out.transpose(1, 2, 0)
             b, g, r = cv2.split(save_out)
             save_out = cv2.merge([r, g, b])
-        
-
-            save_out_r = save_out_r.transpose(1, 2, 0)
-            b, g, r = cv2.split(save_out_r)
-            save_out_r = cv2.merge([r, g, b])
-       
 
             save_path = opt.save_path
-            save_path_r = opt.save_path_r
-
+            
             save_out = reverse_pixelshuffle(save_out, 2)
-            save_out_r = reverse_pixelshuffle(save_out_r, 2)
-        
+            
             cv2.imwrite(os.path.join(save_path, img_name), save_out)
-            cv2.imwrite(os.path.join(save_path_r, img_name), save_out_r)
         
             count = count + 1
 
