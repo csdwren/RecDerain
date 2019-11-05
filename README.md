@@ -75,22 +75,6 @@ Rain1400   |32.75/0.948|32.60/0.946
 SPA-data   |35.14/0.945|35.08/0.942
 
 
-### Model Configuration
-
-The following tables provide the configurations of options. 
-
-#### Testing Mode Configurations
-
-Option                 |Default           | Description
------------------------|------------------|------------
-use_GPU                | True             | use GPU or not
-gpu_id                 | 0                | GPU id
-inter_iter             | 6                | Number of recursive stages
-logdir                 | N/A              | path to trained model
-data_path              | N/A              | path to testing images
-save_path              | N/A              | path to save results
-
-
 ## References
 [1] Yang W, Tan RT, Feng J, Liu J, Guo Z, Yan S. Deep joint rain detection and removal from a single image. In IEEE CVPR 2017.
 
