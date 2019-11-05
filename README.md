@@ -48,7 +48,7 @@ bash test_Rain1400.sh   # test models on Rain1400
 bash test_real.sh       # test models on SPA-data
 ```
 All the results in the paper are also available at [BaiduYun]().
-You can place the downloaded results into `./result/`, and directly compute all the [evaluation metrics](statistics/) in this paper.  
+You can place the downloaded results into `./result/`, and directly compute all the [evaluation metrics](statistic/) in this paper.  
 
 ### 2) Evaluation metrics
 
