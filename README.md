@@ -10,7 +10,7 @@ The experimental results demonstrate that our SRN and BRN notably outperform sta
 - Python 3.6, PyTorch >= 0.4.0
 - Requirements: opencv-python, tensorboardX
 - Platforms: Ubuntu 16.04, cuda-8.0 & cuDNN v-5.1 (higher versions also work well)
-- MATLAB for computing [evaluation metrics](statistics/)
+- MATLAB for computing [evaluation metrics](statistic/)
 
 
 ## Datasets
