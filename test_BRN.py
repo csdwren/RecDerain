@@ -15,7 +15,6 @@ parser = argparse.ArgumentParser(description="BRN_Test")
 parser.add_argument("--logdir", type=str, default="logs/dataset/BRN", help='path of log files')
 parser.add_argument("--data_path", type=str, default="dataset/...", help='path to testing data')
 parser.add_argument("--save_path", type=str, default="results/dataset/BRN/output", help='path to save results')
-parser.add_argument("--save_path_r", type=str, default="results/dataset/BRN/rainstreak", help='path to save rain streaks')
 parser.add_argument("--use_GPU", type=bool, default=True, help='use GPU or not')
 parser.add_argument("--gpu_id", type=str, default="0", help='GPU id')
 parser.add_argument("--inter_iter", type=int, default=8, help='number of inter_iteration')
@@ -27,8 +26,7 @@ if opt.use_GPU:
 def main():
     if not os.path.isdir(opt.save_path):
         os.makedirs(opt.save_path)
-    if not os.path.isdir(opt.save_path_r):
-        os.makedirs(opt.save_path_r)
+
     # Build model
     print('Loading model ...\n')
 
@@ -93,27 +91,17 @@ def main():
         
             if opt.use_GPU:
                 save_out = np.uint8(255 * out.data.cpu().numpy().squeeze())   
-                save_out_r = np.uint8(255 * out_r.data.cpu().numpy().squeeze())
             
             else:
-                save_out = np.uint8(255 * out.data.numpy().squeeze())
-                save_out_r = np.uint8(255 * out_r.data.numpy().squeeze())
+                save_out = np.uint8(255 * out.data.numpy().squeeze())     
             
             save_out = save_out.transpose(1, 2, 0)
             b, g, r = cv2.split(save_out)
-            save_out = cv2.merge([r, g, b])
-        
-
-            save_out_r = save_out_r.transpose(1, 2, 0)
-            b, g, r = cv2.split(save_out_r)
-            save_out_r = cv2.merge([r, g, b])
+            save_out = cv2.merge([r, g, b]) 
        
-
-            save_path = opt.save_path
-            save_path_r = opt.save_path_r
+            save_path = opt.save_path     
         
             cv2.imwrite(os.path.join(save_path, img_name), save_out)
-            cv2.imwrite(os.path.join(save_path_r, img_name), save_out_r)
         
             count = count + 1
 
