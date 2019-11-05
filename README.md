@@ -1,4 +1,4 @@
-## Single Image Deraining Using Bilateral Recurrent
+## Single Image Deraining Using Bilateral Recurrent Network
 ### Introduction
 In this work, we first propose a single recurrent network (SRN) by recursively unfolding a shallow residual network, where a recurrent layer is adopted to propagate deep features across multiple stages.
 This simple SRN is effective not only in learning residual mapping for extracting rain streaks, but also in learning direct mapping for predicting clean background image. Furthermore, two SRNs are coupled to simultaneously exploit rain streak layer and clean background image layer. 
