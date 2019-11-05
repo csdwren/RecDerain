@@ -9,10 +9,10 @@ from utils import *
 from networks import *
 import time 
 
-parser = argparse.ArgumentParser(description="PReNet_Test")
-parser.add_argument("--logdir", type=str, default="logs/Rain100H/SRN6/", help='path to model and log files')
-parser.add_argument("--data_path", type=str, default="/media/r/dataset/rain/Rain100H/rainy/", help='path to training data')
-parser.add_argument("--save_path", type=str, default="/home/r/shangwei/results/R100H/", help='path to save results')
+parser = argparse.ArgumentParser(description="SRN_Test")
+parser.add_argument("--logdir", type=str, default="logs/real/SRN/", help='path to model and log files')
+parser.add_argument("--data_path", type=str, default="dataset/...", help='path to testing data')
+parser.add_argument("--save_path", type=str, default="results/real/SRN", help='path to save results')
 parser.add_argument("--use_GPU", type=bool, default=True, help='use GPU or not')
 parser.add_argument("--gpu_id", type=str, default="0", help='GPU id')
 parser.add_argument("--recurrent_iter", type=int, default=6, help='number of recursive stages')
