@@ -89,7 +89,6 @@ inter_iter             | 6                | Number of recursive stages
 logdir                 | N/A              | path to trained model
 data_path              | N/A              | path to testing images
 save_path              | N/A              | path to save results
-save_path_r            | N/A              | path to save rain streaks
 
 
 ## References
