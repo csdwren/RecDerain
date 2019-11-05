@@ -15,7 +15,7 @@ import time
 parser = argparse.ArgumentParser(description="BRN_Test")
 parser.add_argument("--logdir", type=str, default="logs/real/BRN", help='path of log files')
 parser.add_argument("--data_path", type=str, default="dataset/...", help='path to testing data')
-parser.add_argument("--save_path", type=str, default="results/real/BRN/output", help='path to save results')
+parser.add_argument("--save_path", type=str, default="results/real/BRN", help='path to save results')
 parser.add_argument("--use_GPU", type=bool, default=True, help='use GPU or not')
 parser.add_argument("--gpu_id", type=str, default="0", help='GPU id')
 parser.add_argument("--inter_iter", type=int, default=8, help='number of inter_iteration')
