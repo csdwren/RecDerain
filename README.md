@@ -16,7 +16,7 @@ The experimental results demonstrate that our SRN and BRN notably outperform sta
 ## Datasets
 
 SRN and BRN are evaluated on five datasets*: 
-Rain100H [1], Rain100L [1], Rain12 [2] and Rain1400 [3].  
+Rain100H [1], Rain100L [1], Rain12 [2], Rain1400 [3] and SPA-data [4].  
 Please download the testing datasets from [BaiduYun](https://pan.baidu.com/s/1J0q6Mrno9aMCsaWZUtmbkg)
 or [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g), and download the testing generalization dataset SPA-data [4] from [GoogleDrive](https://drive.google.com/drive/folders/1eSGgE_I4juiTsz0d81l3Kq3v943UUjiG).
 And then place the unzipped folders into './datasets/'. Make sure that the path of the extracted file is consistent with '--data_path'. 
