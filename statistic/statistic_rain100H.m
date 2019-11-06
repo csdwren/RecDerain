@@ -7,7 +7,7 @@ gt_path='../datasets/test/Rain100H/';
 
 SRN = '../results/Rain100H/SRN/';
 
-BRN = %'../results/Rain100H/BRN/';
+BRN = '../results/Rain100H/BRN/';
 
  
 struct_model = {
