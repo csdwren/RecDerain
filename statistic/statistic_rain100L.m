@@ -2,11 +2,11 @@
 clear all;
 close all;
 
-gt_path='/media/r/dataset/rain/Rain100L/'; %'../datasets/test/Rain100L/';
+gt_path='../datasets/test/Rain100L/';
 
-SRN = '/home/r/shangwei/PReNet-master/results/Rain100L/SRN/'; %'../results/Rain100L/SRN/';
+SRN = '../results/Rain100L/SRN/';
 
-BRN = '/home/r/shangwei/PReNet-master/results/Rain100L/BRN/'; %'../results/Rain100L/BRN/';
+BRN = '../results/Rain100L/BRN/';
 
  
 struct_model = {
