@@ -72,7 +72,9 @@ Rain100H   |30.47/0.913|29.46/0.899|
 Rain100L   |38.16/0.982|37.48/0.979|
 Rain12     |36.74/0.959|36.66/0.961|
 Rain1400   |32.75/0.948|32.60/0.946|
-SPA-data   |35.14/0.945|35.08/0.942|# Generalization evaluation of models trained on synthetic light rainy images.
+SPA-data*  |35.14/0.945|35.08/0.942|
+
+*_SRN and BRN are trained on synthetic light rainy images instead of the 44GB training dataset, and are used to process the 1000 testing images for generalization evaluation._
 
 
 ## References
