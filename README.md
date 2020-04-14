@@ -9,7 +9,7 @@ The experimental results demonstrate that our SRN and BRN notably outperform sta
 ## Prerequisites
 - Python 3.6, PyTorch >= 0.4.0
 - Requirements: opencv-python, tensorboardX
-- Platforms: Ubuntu 16.04, cuda-8.0 & cuDNN v-5.1 (higher versions also work well)
+- Platforms: Ubuntu 16.04, cuda-8.0 & cuDNN v-5.1 
 - MATLAB for computing [evaluation metrics](statistic/)
 
 
@@ -23,17 +23,17 @@ And then place the unzipped folders into './datasets/'. Make sure that the path 
 
 *_We note that:_
 
-_(i) The datasets in the website of [1] seem to be modified. 
-    But the models and results in recent papers are all based on the previous version, 
+_(i) The datasets of Rain100H and Rain100L have been updated by the authors.  
+We notate them as RainHeavy* and RainLight*, that can be downloaded from [here](http://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html).  
     and thus we upload the original training and testing datasets 
     to [BaiduYun](https://pan.baidu.com/s/1J0q6Mrno9aMCsaWZUtmbkg) 
     and [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g)._ 
 
-_(ii) For RainTrainH, we strictly exclude 546 rainy images that have the same background contents with testing images.
-    All our models are trained on remaining 1,254 training samples._
+_(ii) We upload the old datasets of Rain100H and Rain100L to [BaiduYun](https://pan.baidu.com/s/1J0q6Mrno9aMCsaWZUtmbkg)
+or [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g). 
+For Rain100H, we strictly exclude 546 rainy images that have the same background contents with testing images.All our models are trained on remaining 1,254 training samples._
   
-_(iii) We retrained all SOTAs on RainHeavy*[5] and RainLight*[5]  to ensure
-the effectiveness and for future comparison with our proposed method.
+
         
 
 ## Getting Started
@@ -50,8 +50,12 @@ bash test_Rain100L.sh   # test models on Rain100L
 bash test_Rain1400.sh   # test models on Rain1400
 bash test_real.sh       # test models on SPA-data
 ```
-All the results in the paper are also available at [GoogleDrive](https://drive.google.com/drive/folders/1pIDsc8VPRO5VFNDEoO16ukoaAB4Dsuqt).
-You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper.  
+
+_(i) On RainHeavy* [5] and RainLight* [5], we re-train all the competing methods. 
+We have the trained models to `./logs/RainHeavy` and `./logs/RainLight`._
+
+_(ii) All the results in the paper are also available at [GoogleDrive](https://drive.google.com/drive/folders/1pIDsc8VPRO5VFNDEoO16ukoaAB4Dsuqt).
+You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper. _
 
 ### 2) Evaluation metrics
 
@@ -60,6 +64,8 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
 
 ```Matlab
  cd ./statistic
+ run statistic_RainHeavy.m
+ run statistic_RainLight.m
  run statistic_Rain100H.m
  run statistic_Rain100L.m
  run statistic_Rain12.m
@@ -69,17 +75,16 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
 ###
 Average PSNR/SSIM values on benchmark datasets:
 
-![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/1.jpg)
+<img src="results/1.jpg" width="800px"/>
 
-![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/2.jpg)
+<img src="results/2.jpg" width="800px"/>
 
-![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/3.jpg)
+<img src="results/3.jpg" width="800px"/>
 
-![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/5.jpg)
+<img src="results/5.jpg" width="800px"/>
 
-![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/4.jpg)
+<img src="results/4.jpg" width="800px"/>
 
-*_All methods are trained on synthetic RainLight[5] rainy images instead of the 44GB training dataset, and are used to process the 1000 testing images for generalization evaluation._
 
 
 ## References
