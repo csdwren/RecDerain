@@ -50,7 +50,7 @@ bash test_Rain100L.sh   # test models on Rain100L
 bash test_Rain1400.sh   # test models on Rain1400
 bash test_real.sh       # test models on SPA-data
 ```
-All the results in the paper are also available at [BaiduYun](https://pan.baidu.com/s/1eyBzwj4kDXAc7v81QNgLOA).
+All the results in the paper are also available at [GoogleDrive](https://drive.google.com/drive/folders/1pIDsc8VPRO5VFNDEoO16ukoaAB4Dsuqt).
 You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper.  
 
 ### 2) Evaluation metrics
