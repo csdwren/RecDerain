@@ -75,11 +75,11 @@ Average PSNR/SSIM values on benchmark datasets:
 
 ![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/3.jpg)
 
-![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/4.jpg)
-
 ![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/5.jpg)
 
-*_SRN and BRN are trained on synthetic light rainy images instead of the 44GB training dataset, and are used to process the 1000 testing images for generalization evaluation._
+![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/4.jpg)
+
+*_All methods are trained on synthetic RainLight[5] rainy images instead of the 44GB training dataset, and are used to process the 1000 testing images for generalization evaluation._
 
 
 ## References
