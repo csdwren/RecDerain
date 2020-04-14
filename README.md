@@ -15,10 +15,10 @@ The experimental results demonstrate that our SRN and BRN notably outperform sta
 
 ## Datasets
 
-SRN and BRN are evaluated on five datasets*: 
-Rain100H [1], Rain100L [1], Rain12 [2], Rain1400 [3] and SPA-data [4].  
+SRN and BRN are evaluated on seven datasets*: 
+Rain100H [1], Rain100L [1], RainHeavy*[5], RainLight*[5], Rain12 [2], Rain1400 [3] and SPA-data [4].  
 Please download the testing datasets from [BaiduYun](https://pan.baidu.com/s/1J0q6Mrno9aMCsaWZUtmbkg)
-or [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g), and download the testing generalization dataset SPA-data [4] from [GoogleDrive](https://drive.google.com/drive/folders/1eSGgE_I4juiTsz0d81l3Kq3v943UUjiG).
+or [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g), download the RainHeavy*[5] and RainLight*[5] from [Project](http://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html), and download the testing generalization dataset SPA-data [4] from [GoogleDrive](https://drive.google.com/drive/folders/1eSGgE_I4juiTsz0d81l3Kq3v943UUjiG).
 And then place the unzipped folders into './datasets/'. Make sure that the path of the extracted file is consistent with '--data_path'. 
 
 *_We note that:_
@@ -31,6 +31,9 @@ _(i) The datasets in the website of [1] seem to be modified.
 
 _(ii) For RainTrainH, we strictly exclude 546 rainy images that have the same background contents with testing images.
     All our models are trained on remaining 1,254 training samples._
+  
+_(iii) We retrained all SOTAs on RainHeavy*[5] and RainLight*[5]  to ensure
+the effectiveness and for future comparison with our proposed method.
         
 
 ## Getting Started
@@ -64,15 +67,9 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
  run statistic_real.m
 ```
 ###
-Average PSNR/SSIM values on four datasets:
+Average PSNR/SSIM values on benchmark datasets:
 
-Dataset    | BRN       |SRN        |
------------|-----------|-----------|
-Rain100H   |30.47/0.913|29.46/0.899|
-Rain100L   |38.16/0.982|37.48/0.979|
-Rain12     |36.74/0.959|36.66/0.961|
-Rain1400   |32.75/0.948|32.60/0.946|
-SPA-data*  |35.14/0.945|35.08/0.942|
+
 
 *_SRN and BRN are trained on synthetic light rainy images instead of the 44GB training dataset, and are used to process the 1000 testing images for generalization evaluation._
 
@@ -85,3 +82,5 @@ SPA-data*  |35.14/0.945|35.08/0.942|
 [3] Fu X, Huang J, Zeng D, Huang Y, Ding X, Paisley J. Removing rain from single images via a deep detail network. In IEEE CVPR 2017.
 
 [4] Wang T, Yang X, Xu K, Chen S,Zhang Q, and R. W. Lau, Spatial attentive single-image deraining with a high quality real rain dataset. In IEEE CVPR 2019.
+
+[5]Yang W, Tan RT, Feng J, Liu J, Yan S. and Guo Z. Joint rain detection and removal from a single image with contextualized deep networks. In IEEE T-PAMI 2019. 
