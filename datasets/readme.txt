@@ -36,5 +36,11 @@ This dataset only includes 12 rainy images from http://yu-li.github.io/paper/li_
 This dataset includes 1000 real rainy images from https://drive.google.com/drive/folders/1eSGgE_I4juiTsz0d81l3Kq3v943UUjiG
 
 
+Updating:
+The authors of Rain100H and Rain100L have updated the datasets of Rain100H and Rain100L, both of which include 1,800 training
+pairs and 200 testing images. We notate them as RainHeavy ∗ and RainLight ∗ , respectively.
+The datasets can be downloaded from http://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html
+
+
 
 
