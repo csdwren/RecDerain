@@ -2,10 +2,10 @@
 clear all;
 close all;
 
-gt_path='../datasets/test/real_test_1000/gt';
+gt_path='../datasets/test/rain_heavy_test/norain/';
 
 
-BRN = '../results/real/BRN/';
+BRN = '../results/RainHeavy/BRN/';
 
  
 struct_model = {
@@ -13,7 +13,7 @@ struct_model = {
     };
 
 
-nimgs=1000;nrain=1;
+nimgs=200;nrain=1;
 nmodel = length(struct_model);
 
 psnrs = zeros(nimgs,nmodel);
@@ -26,12 +26,12 @@ for nnn = 1:nmodel
     for iii=nstart+1:nstart+nimgs
         for jjj=1:nrain
             %         fprintf('img=%d,kernel=%d\n',iii,jjj);
-            x_true=im2double(imread(fullfile(gt_path,sprintf('%03dgt.png',iii-1))));%x_true
+            x_true=im2double(imread(fullfile(gt_path,sprintf('norain-%d.png',iii))));%x_true
             x_true = rgb2ycbcr(x_true);x_true=x_true(:,:,1);
             
 
             %%
-            x = (im2double(imread(fullfile(struct_model{nnn}.path,sprintf('%03d.png',iii-1)))));
+            x = (im2double(imread(fullfile(struct_model{nnn}.path,sprintf('norain-%dx2.png',iii)))));
             x = rgb2ycbcr(x);x = x(:,:,1);
             tp = mean(psnr(x,x_true));
             ts = ssim(x*255,x_true*255);

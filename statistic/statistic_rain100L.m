@@ -4,13 +4,11 @@ close all;
 
 gt_path='../datasets/test/Rain100L/';
 
-SRN = '../results/Rain100L/SRN/';
 
 BRN = '../results/Rain100L/BRN/';
 
  
 struct_model = {
-          struct('model_name','SRN','path',SRN),...
           struct('model_name','BRN','path',BRN),...
     };
 
