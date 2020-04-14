@@ -23,15 +23,10 @@ And then place the unzipped folders into './datasets/'. Make sure that the path 
 
 *_We note that:_
 
-_(i) The datasets of Rain100H and Rain100L have been updated by the authors.  
-We notate them as RainHeavy* and RainLight*, that can be downloaded from [here](http://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html).  
-    and thus we upload the original training and testing datasets 
-    to [BaiduYun](https://pan.baidu.com/s/1J0q6Mrno9aMCsaWZUtmbkg) 
-    and [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g)._ 
+_(i) The datasets of Rain100H and Rain100L have been updated by the authors. We notate them as RainHeavy* and RainLight*, that can be downloaded from [here](http://www.icst.pku.edu.cn/struct/Projects/joint_rain_removal.html)._
 
 _(ii) We upload the old datasets of Rain100H and Rain100L to [BaiduYun](https://pan.baidu.com/s/1J0q6Mrno9aMCsaWZUtmbkg)
-or [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g). 
-For Rain100H, we strictly exclude 546 rainy images that have the same background contents with testing images.All our models are trained on remaining 1,254 training samples._
+or [OneDrive](https://1drv.ms/f/s!AqLfQqtZ6GwGgep-hgjLxkov2SSZ3g). For Rain100H, we strictly exclude 546 rainy images that have the same background contents with testing images.All our models are trained on remaining 1,254 training samples._
   
 
         
@@ -53,8 +48,7 @@ bash test_Rain1400.sh   # test models on Rain1400
 bash test_real.sh       # test models on SPA-data
 ```
 
-_(i) On RainHeavy* [5] and RainLight* [5], we re-train all the competing methods. 
-We have the trained models to `./logs/RainHeavy/` and `./logs/RainLight/`._
+_(i) On RainHeavy* [5] and RainLight* [5], we re-train all the competing methods. We have uploaded all the trained models to `./logs/RainHeavy/` and `./logs/RainLight/`. You can use their source codes to reproduce the results in the paper._
 
 _(ii) All the results in the paper are also available at [GoogleDrive](https://drive.google.com/drive/folders/1pIDsc8VPRO5VFNDEoO16ukoaAB4Dsuqt). You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper._
 
