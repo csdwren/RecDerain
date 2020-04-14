@@ -67,7 +67,7 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
  run statistic_real.m
 ```
 ###
-Average PSNR/SSIM values on benchmark datasets:
+
 
 <img src="results/1.jpg" width="800px"/>
 
@@ -82,12 +82,12 @@ Average PSNR/SSIM values on benchmark datasets:
 
 
 ## References
-[1] Yang W, Tan RT, Feng J, Liu J, Guo Z, Yan S. Deep joint rain detection and removal from a single image. In IEEE CVPR 2017.
+[1] Yang W, Tan R, Feng J, Liu J, Guo Z, and Yan S. Deep joint rain detection and removal from a single image. In IEEE CVPR 2017.
 
-[2] Li Y, Tan RT, Guo X, Lu J, Brown MS. Rain streak removal using layer priors. In IEEE CVPR 2016.
+[2] Li Y, Tan RT, Guo X, Lu J, and Brown M. Rain streak removal using layer priors. In IEEE CVPR 2016.
 
-[3] Fu X, Huang J, Zeng D, Huang Y, Ding X, Paisley J. Removing rain from single images via a deep detail network. In IEEE CVPR 2017.
+[3] Fu X, Huang J, Zeng D, Huang Y, Ding X, and Paisley J. Removing rain from single images via a deep detail network. In IEEE CVPR 2017.
 
-[4] Wang T, Yang X, Xu K, Chen S,Zhang Q, and R. W. Lau, Spatial attentive single-image deraining with a high quality real rain dataset. In IEEE CVPR 2019.
+[4] Wang T, Yang X, Xu K, Chen S, Zhang Q, and Lau R. Spatial attentive single-image deraining with a high quality real rain dataset. In IEEE CVPR 2019.
 
-[5]Yang W, Tan RT, Feng J, Liu J, Yan S. and Guo Z. Joint rain detection and removal from a single image with contextualized deep networks. In IEEE T-PAMI 2019. 
+[5] Yang W, Tan R, Feng J, Liu J, Yan S, and Guo Z. Joint rain detection and removal from a single image with contextualized deep networks. IEEE T-PAMI 2019. 
