@@ -44,18 +44,19 @@ We have placed our pre-trained models into `./logs/`.
 
 Run shell scripts to test the models:
 ```bash
-bash test_Rain12.sh     # test models on Rain12
+bash test_RainHeavy.sh   # test models on RainHeavy
+bash test_RainLight.sh   # test models on RainLight
 bash test_Rain100H.sh   # test models on Rain100H
 bash test_Rain100L.sh   # test models on Rain100L
+bash test_Rain12.sh     # test models on Rain12
 bash test_Rain1400.sh   # test models on Rain1400
 bash test_real.sh       # test models on SPA-data
 ```
 
 _(i) On RainHeavy* [5] and RainLight* [5], we re-train all the competing methods. 
-We have the trained models to `./logs/RainHeavy` and `./logs/RainLight`._
+We have the trained models to `./logs/RainHeavy/` and `./logs/RainLight/`._
 
-_(ii) All the results in the paper are also available at [GoogleDrive](https://drive.google.com/drive/folders/1pIDsc8VPRO5VFNDEoO16ukoaAB4Dsuqt).
-You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper. _
+_(ii) All the results in the paper are also available at [GoogleDrive](https://drive.google.com/drive/folders/1pIDsc8VPRO5VFNDEoO16ukoaAB4Dsuqt). You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper._
 
 ### 2) Evaluation metrics
 
