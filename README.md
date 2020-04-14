@@ -69,7 +69,7 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
 ###
 Average PSNR/SSIM values on benchmark datasets:
 
-![Image]https://raw.githubusercontent.com/csdwren/RecDerain/master/results/1.jpg
+![Image](https://raw.githubusercontent.com/csdwren/RecDerain/master/results/1.jpg)
 
 *_SRN and BRN are trained on synthetic light rainy images instead of the 44GB training dataset, and are used to process the 1000 testing images for generalization evaluation._
 
