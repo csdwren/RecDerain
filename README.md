@@ -72,13 +72,13 @@ Average PSNR/SSIM values on benchmark datasets:
 
 <img src="results/1.jpg" width="800px"/>
 
-<img src="results/2.jpg" width="800px"/>
+<img src="results/2.jpg" width="400px"/>
 
 <img src="results/3.jpg" width="800px"/>
 
-<img src="results/5.jpg" width="800px"/>
-
 <img src="results/4.jpg" width="800px"/>
+
+<img src="results/5.jpg" width="800px"/>
 
 
 
