@@ -49,7 +49,7 @@ bash test_real.sh       # test models on SPA-data
 
 _(i) On RainHeavy* [5] and RainLight* [5], we re-train all the competing methods. We have uploaded all the trained models to [`./logs/RainHeavy/`](logs/RainHeavy/) and [`./logs/RainLight/`](logs/RainLight/). You can use their source codes to reproduce the results in the paper._
 
-_(ii) All the results in the paper are also available at [GoogleDrive](https://drive.google.com/open?id=1wFWj1lWLb0VxzRJ86JFsQivioLCvgpZ_). You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper._
+_(ii) All the results in the paper are also available at [GoogleDrive](https://drive.google.com/file/d/1wFWj1lWLb0VxzRJ86JFsQivioLCvgpZ_/view?usp=sharing). You can place the downloaded results into `./results/`, and directly compute all the [evaluation metrics](statistic/) in this paper._
 
 ### 2) Evaluation metrics
 
