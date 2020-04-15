@@ -1,15 +1,13 @@
 ## Single Image Deraining Using Bilateral Recurrent Network
 ### Introduction
-In this work, we first propose a single recurrent network (SRN) by recursively unfolding a shallow residual network, where a recurrent layer is adopted to propagate deep features across multiple stages.
-This simple SRN is effective not only in learning residual mapping for extracting rain streaks, but also in learning direct mapping for predicting clean background image. Furthermore, two SRNs are coupled to simultaneously exploit rain streak layer and clean background image layer. 
-Instead of naive combination, we propose bilateral LSTMs, which not only can respectively propagate deep features of rain streak layer and background image layer acorss stages, but also bring the interplay between these two SRNs, finally forming bilateral recurrent network (BRN).
-The experimental results demonstrate that our SRN and BRN notably outperform state-of-the-art deep deraining networks on synthetic datasets quantitatively and qualitatively. The proposed methods also perform more favorably in terms of generalization performance on real-world rainy dataset. 
+Single image deraining has received considerable progress based on deep convolutional neural network. Most existing deep deraining methods follow residual learning in image denoising to learn rain streak layer, and perform limited in restoring background image layer. In this work, we first propose a single recurrent network (SRN), where the composition pattern of two layers can be exploited and propagated in multiple stages via LSTM, thereby contributing to the remedy of possible over-removal of rain streaks. This simple SRN is effective not only in learning residual mapping for extracting rain streaks, but also in learning direct mapping for predicting clean background image. Furthermore, we propose bilateral recurrent network (BRN) to allow the interplay between rain streak and background image layers. 
+In particular, two SRNs are coupled to simultaneously exploit these two layers. Instead of naive combination, we propose bilateral LSTMs, which not only can respectively propagate deep features across stages, but also bring the interplay between these two SRNs, which is essential in separating two layers from rainy observation. The experimental results demonstrate that our BRN notably outperforms state-of-the-art deep deraining networks on synthetic datasets quantitatively and qualitatively. The proposed methods also perform more favorably in terms of generalization performance on real-world rainy dataset. 
 
 
 ## Prerequisites
 - Python 3.6, PyTorch >= 0.4.0
 - Requirements: opencv-python, tensorboardX
-- Platforms: Ubuntu 16.04, cuda-8.0 & cuDNN v-5.1 
+- Platforms: Ubuntu 16.04, cuda-10.0 & cuDNN v-7.5 
 - MATLAB for computing [evaluation metrics](statistic/)
 
 
@@ -71,11 +69,11 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
 
 <img src="results/1.jpg" width="800px"/>
 
-<img src="results/2.jpg" width="400px"/>
+<img src="results/2.jpg" width="350px"/>
 
 <img src="results/3.jpg" width="800px"/>
 
-<img src="results/4.jpg" width="800px"/>
+<img src="results/4.jpg" width="850px"/>
 
 <img src="results/5.jpg" width="800px"/>
 
