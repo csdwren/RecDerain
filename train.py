@@ -17,7 +17,6 @@ import pytorch_ssim
 
 from generator import BRN, print_network
 
-# os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 parser = argparse.ArgumentParser(description="BRN")
@@ -35,40 +34,6 @@ opt = parser.parse_args()
 
 if opt.use_GPU:
     os.environ["CUDA_VISIBLE_DEVICES"] = opt.gpu_id
-
-
-# def save_image(epoch, img_lists):
-    # data, pred, label = img_lists
-    # pred = pred.cpu().data
-    # data = data.cpu().data
-    # label = label.cpu().data
-    # data, label, pred = data[0], label[0], pred[0]
-
-    # #pred = np.clip(pred, 0, 1)
-    # #label = torch.cat((label, label, label), 0)
-    # #pred = torch.cat((pred, pred, pred), 0)
-
-
-    # h, w = pred.shape[-2:]  #最后两个元素
-
-    # gen_num = (1, 3)
-    # img = np.zeros((gen_num[0] * h, gen_num[1] * w, 3))
-    # #print(img.shape)
-    # for img_list in img_lists:
-        # for i in range(gen_num[0]):
-            # row = i * h
-            # for j in range(gen_num[1]):
-                # #idx = i * gen_num[1] + j
-                # tmp_list = [data, pred, label]
-
-                # col = j * w
-                # tmp = np.transpose(tmp_list[j], (1, 2, 0))
-
-                # img[row: row+h, col: col+w] = tmp
-    # img = np.clip(img, 0, 1)
-    # img1 = np.uint8(255 * img)
-    # img_file = os.path.join(opt.outf, '%d.png' % epoch)
-    # cv2.imwrite(img_file, img1)
 
 def main():
     if not os.path.isdir(opt.outf):
@@ -125,10 +90,8 @@ def main():
 
             # rain = input - target
             input_train, target_train = Variable(input.cuda()), Variable(target.cuda())
-
            
             out_train, _, _, _ = model(input_train)
-
 
             pixel_loss = criterion(target_train, out_train)
             #mse = criterion(input_train1 - target_train, r)
@@ -156,24 +119,10 @@ def main():
                 # writer.add_scalar('loss_r', loss_r.item(), step)
                 #writer.add_scalar('PSNR_r on training data', psnr_train_r, step)
             step += 1
-            # save_image(epoch, [input_train, out_train, target_train])
         ## the end of each epoch
 
         model.eval()
-        '''
-        # validate
-        psnr_val = 0
-        for k in range(len(dataset_val)):
-            img_val = torch.unsqueeze(dataset_val[k], 0)
-            noise = torch.FloatTensor(img_val.size()).normal_(mean=0, std=opt.val_noiseL/255.)
-            imgn_val = img_val + noise
-            img_val, imgn_val = Variable(img_val.cuda()), Variable(imgn_val.cuda())
-            out_val = torch.clamp(imgn_val-model(imgn_val), 0., 1.)
-            psnr_val += batch_PSNR(out_val, img_val, 1.)
-        psnr_val /= len(dataset_val)
-        print("\n[epoch %d] PSNR_val: %.4f" % (epoch+1, psnr_val))
-        writer.add_scalar('PSNR on validation data', psnr_val, epoch)
-        '''
+        
         with torch.no_grad():
             # log the images
             out_train, _, _, _ = model(input_train)
@@ -192,9 +141,7 @@ def main():
 
         if epoch % opt.save_freq == 0:
             torch.save(model.state_dict(), os.path.join(opt.outf, 'net_epoch%d.pth' % (epoch + 1)))
-        # if epoch % opt.save_freq == 0:
-            # #input_train = input_train.resize(input_train.shape[0], 1, input_train.shape[1], input_train.shape[2])
-            # save_image(epoch, [input_train, out_train, target_train])
+      
 
 if __name__ == "__main__":
     if opt.preprocess:
