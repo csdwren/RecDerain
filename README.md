@@ -81,6 +81,7 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
 
 ```bash
 python train.py --outf path_to_save_trained_models  --data_path path_to_training_dataset
+```
 
 *_If you use the new dataset by yourself, please make sure to define new function for preprocessing training patches in `DerainDataset.py`._
 
