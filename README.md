@@ -79,11 +79,15 @@ We also provide the MATLAB scripts to compute the average PSNR and SSIM values r
 
 ### 3) Training
 
-`python train.py --outf logs/...  --data_path datasets/...`
+```bash
+python train.py --outf logs/...  --data_path datasets/...
+```
 
-`--outf` indicates the path of the generated model file; `--data_path` indicates the path of the training data.
+`--outf` is the path to save trained models
 
-*_note:_ If you name the dataset by yourself, please make sure to change the folder name in `preprocess` synchronously to avoid errors.
+`--data_path` is the path to training data.
+
+*_If you use the new dataset by yourself, please make sure to define new function for preprocessing training patches in `DerainDataset.py`._
 
 ## References
 [1] Yang W, Tan R, Feng J, Liu J, Guo Z, and Yan S. Deep joint rain detection and removal from a single image. In IEEE CVPR 2017.
