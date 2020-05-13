@@ -24,7 +24,7 @@ parser.add_argument("--preprocess", type=bool, default=True, help='run prepare_d
 parser.add_argument("--batchSize", type=int, default=12, help="Training batch size")
 parser.add_argument("--epochs", type=int, default=100, help="Number of training epochs")
 parser.add_argument("--lr", type=float, default=1e-3, help="Initial learning rate")  #1e-3L   5e-4H   5e-5R1400
-parser.add_argument("--outf", type=str, default="logs/test", help='path of log files')
+parser.add_argument("--save_path", type=str, default="logs/test", help='path of log files')
 parser.add_argument("--save_freq", type=int, default=1, help='save intermediate model')
 parser.add_argument("--data_path", type=str, default="datasets/RainTrainH/",help='path to training data')
 parser.add_argument("--use_GPU", type=bool, default=True, help='use GPU or not')
@@ -36,8 +36,8 @@ if opt.use_GPU:
     os.environ["CUDA_VISIBLE_DEVICES"] = opt.gpu_id
 
 def main():
-    if not os.path.isdir(opt.outf):
-        os.makedirs(opt.outf)
+    if not os.path.isdir(opt.save_path):
+        os.makedirs(opt.save_path)
     # Load dataset
     print('Loading dataset ...\n')
     if (opt.data_path.find('Light') != -1 or opt.data_path.find('Heavy') != -1):
@@ -66,13 +66,13 @@ def main():
     scheduler = MultiStepLR(optimizer, milestones=[30, 50, 80], gamma=0.2)  # learning rates
     #scheduler = MultiStepLR(optimizer, milestones=[120, 140], gamma=0.2)
     # training
-    writer = SummaryWriter(opt.outf)
+    writer = SummaryWriter(opt.save_path)
     step = 0
 
-    initial_epoch = findLastCheckpoint(save_dir=opt.outf)  # load the last model in matconvnet style
+    initial_epoch = findLastCheckpoint(save_dir=opt.save_path)  # load the last model in matconvnet style
     if initial_epoch > 0:
         print('resuming by loading epoch %03d' % initial_epoch)
-        model.load_state_dict(torch.load(os.path.join(opt.outf, 'net_epoch%d.pth' % initial_epoch)))
+        model.load_state_dict(torch.load(os.path.join(opt.save_path, 'net_epoch%d.pth' % initial_epoch)))
 
     for epoch in range(initial_epoch, opt.epochs):
 
@@ -137,10 +137,10 @@ def main():
         writer.add_image('reconstructed image', Irecon, epoch)
         #writer.add_image('estimated rain image', rainstreak, epoch)
         # save model
-        torch.save(model.state_dict(), os.path.join(opt.outf, 'net_latest.pth'))
+        torch.save(model.state_dict(), os.path.join(opt.save_path, 'net_latest.pth'))
 
         if epoch % opt.save_freq == 0:
-            torch.save(model.state_dict(), os.path.join(opt.outf, 'net_epoch%d.pth' % (epoch + 1)))
+            torch.save(model.state_dict(), os.path.join(opt.save_path, 'net_epoch%d.pth' % (epoch + 1)))
       
 
 if __name__ == "__main__":
