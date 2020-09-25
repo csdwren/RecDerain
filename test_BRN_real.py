@@ -29,8 +29,7 @@ if opt.use_GPU:
 def main():
     if not os.path.isdir(opt.save_path):
         os.makedirs(opt.save_path)
-    if not os.path.isdir(opt.save_path_r):
-        os.makedirs(opt.save_path_r)
+    
     # Build model
     print('Loading model ...\n')
 
@@ -83,6 +82,42 @@ def main():
                 start_time = time.time()
                 out, _, _, _ = model(INoisy)
                 
+                Im1 = out.clone()
+                Im2 = out.clone()
+                Im3 = out.clone()
+                Im4 = out.clone()
+
+                Im1[:, :, :h // 2, :w // 2] = INoisy[:, :, :h // 2, :w // 2]
+                Im2[:, :, :h // 2, w // 2:] = INoisy[:, :, :h // 2, w // 2:]
+                Im3[:, :, h // 2:, :w // 2] = INoisy[:, :, h // 2:, :w // 2]
+                Im4[:, :, h // 2:, w // 2:] = INoisy[:, :, h // 2:, w // 2:]
+
+                Im1 = Im1.data.cpu().numpy().squeeze().transpose(1, 2, 0)
+                Im2 = Im2.data.cpu().numpy().squeeze().transpose(1, 2, 0)
+                Im3 = Im3.data.cpu().numpy().squeeze().transpose(1, 2, 0)
+                Im4 = Im4.data.cpu().numpy().squeeze().transpose(1, 2, 0)
+
+                Im1 = reverse_pixelshuffle(Im1, 2)
+                Im2 = reverse_pixelshuffle(Im2, 2)
+                Im3 = reverse_pixelshuffle(Im3, 2)
+                Im4 = reverse_pixelshuffle(Im4, 2)
+
+                Im1 = np.expand_dims(Im1.transpose(2, 0, 1), 0)
+                Im2 = np.expand_dims(Im2.transpose(2, 0, 1), 0)
+                Im3 = np.expand_dims(Im3.transpose(2, 0, 1), 0)
+                Im4 = np.expand_dims(Im4.transpose(2, 0, 1), 0)
+
+                Im1 = torch.Tensor(Im1).cuda()
+                Im2 = torch.Tensor(Im2).cuda()
+                Im3 = torch.Tensor(Im3).cuda()
+                Im4 = torch.Tensor(Im4).cuda()
+
+                out1, _, _, _ = model(Im1)
+                out2, _, _, _ = model(Im2)
+                out3, _, _, _ = model(Im3)
+                out4, _, _, _ = model(Im4)
+
+                out = (out1 + out2 + out3 + out4) / 4
                 out = torch.clamp(out, 0., 1.)
                
             
@@ -106,8 +141,6 @@ def main():
             save_out = cv2.merge([r, g, b])
 
             save_path = opt.save_path
-            
-            save_out = reverse_pixelshuffle(save_out, 2)
             
             cv2.imwrite(os.path.join(save_path, img_name), save_out)
         
